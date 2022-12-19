@@ -81,16 +81,16 @@ function drawEarth(){
    noStroke();
   translate(20,0);
   //push();
-  if ( !warSound.isPlaying()){
- warSound.play();
-  }
+
     if (latestData == 0) {
     rotateZ(millis() / 2000);
     warSound.stop();  
   } else if (latestData >= 1) {
    rotateZ(millis() / 500);
-    warSound.play();  
-    warSound.setVolume(0.01); 
+      if ( !warSound.isPlaying()){
+ warSound.play();
+  }
+    warSound.setVolume(0.1); 
    }
   rotate(PI/9, [1,1,0]);
   sphere(30);
